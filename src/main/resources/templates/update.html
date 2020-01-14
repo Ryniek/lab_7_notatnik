@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css">
+</head>
+<body>
+<div class="container" style="background-color: #f5f5ef">
+    <div class="row">
+        <div class="col-8">
+            <form th:action="@{/updateNote/{id}(id=${noteToUpdate.getId()})}"  class="form-horizontal" method="post" style=" margin: 15px; background-color: #adaca8; padding: 10px; border-radius: 25px">
+                <fieldset>
+                    <legend>Add post</legend>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="textinput">Title</label>
+                        <div class="col-md-4">
+                            <input id="textinput" th:name="title" th:value="${noteToUpdate.getTitle()}" type="text" placeholder="title" class="form-control input-md">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="textarea">Content</label>
+                        <div class="col-md-4">
+                            <textarea class="form-control" id="textarea" th:name="content" th:text="${noteToUpdate.getContent()}"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="singlebutton"></label>
+                        <div class="col-md-4">
+                            <button id="singlebutton" name="singlebutton" class="btn btn-dark">Submit</button>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <br>
+    <a style="font-size: 25px" th:href="@{/}">Main page</a>
+</div>
+</body>
+</html>
